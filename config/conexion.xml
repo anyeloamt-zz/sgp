@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<configuracionBaseDeDatos>
+	<configuracion>
+		<driver>com.mysql.jdbc.Driver</driver>
+		<api>jdbc</api>
+		<compania>mysql</compania>
+		<host>localhost</host>
+		<baseDeDatos>gestor_pacientes</baseDeDatos>
+		<usuario>root</usuario>
+		<clave>oracle</clave>
+	</configuracion>
+</configuracionBaseDeDatos>

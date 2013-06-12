@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TopMedicosMasConsultado" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f5e44a9-2891-4811-9794-93766b747d49">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="fde91cfa-d269-4e8b-9dd5-e5b0ccf20089"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  m.codigo_empleado,concat(m.nombre," ",m.apellido) as 'nombre completo',m.cedula,m.correo,count(cita_id) as cantidad_de_consulta FROM citas c
+join usuarios m on m.codigo_empleado = c.codigo_empleado group by m.nombre LIMIT 10 ;]]>
+	</queryString>
+	<field name="codigo_empleado" class="java.lang.String"/>
+	<field name="nombre completo" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="correo" class="java.lang.String"/>
+	<field name="cantidad_de_consulta" class="java.lang.Long"/>
+	<group name="nombre completo">
+		<groupExpression><![CDATA[$F{nombre completo}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement uuid="6ff27eff-35ab-4283-9349-ee8f138d3014" mode="Opaque" x="229" y="7" width="573" height="24" forecolor="#B89F7D" backcolor="#70A9C6"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement uuid="f6fe40bc-b3b3-47c6-ae24-02f56a0058e4" style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="263" height="23" forecolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nombre completo}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="208" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="54d4fcfa-27b5-45ca-abd8-2f0245fc8f98" style="SubTitle" x="352" y="64" width="449" height="29"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10 médicos más consultados ]]></text>
+			</staticText>
+			<frame>
+				<reportElement uuid="004ac3e6-2970-482b-ab05-474681484349" mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="1c534aee-08df-4571-9663-e0ae1cb3b781" style="Title" x="231" y="0" width="578" height="65"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Gestor de pacientes]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement uuid="5a0f9f2c-689f-4266-9308-a6101dc6e4a1" x="227" y="0" width="575" height="14"/>
+				<staticText>
+					<reportElement uuid="dc8d2d69-7d61-49d1-856c-892e17ee4c51" style="Column header" positionType="Float" x="0" y="0" width="127" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Código de empleado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="72793bdd-ad7d-4151-91ed-30ac5d57c1ba" style="Column header" positionType="Float" x="150" y="0" width="93" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Cédula]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4780949c-4398-4543-b411-adfdbf7cb5cd" style="Column header" positionType="Float" x="257" y="0" width="143" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Correo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="d5310123-705e-413c-bf86-7926048ec975" style="Column header" positionType="Float" x="445" y="0" width="129" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Cantidad de consultas]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement uuid="2fc704dc-c26b-4816-8550-c1d2c21caf07" positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1"/>
+			</line>
+			<frame>
+				<reportElement uuid="a0e68195-62ac-4373-804b-58217b9322fa" x="227" y="0" width="575" height="14"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="46d87017-b66a-4f67-aa80-5d8676a79ca9" style="Detail" positionType="Float" x="3" y="0" width="124" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codigo_empleado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="7282a487-9894-4884-bfe8-2550e2e47752" style="Detail" positionType="Float" x="150" y="0" width="117" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="27356bfb-6fcd-491e-8e95-05f0f2db421c" style="Detail" positionType="Float" x="257" y="0" width="189" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{correo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="71a032d1-db9f-427c-b775-d1fb5f906f0f" style="Detail" positionType="Float" x="477" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cantidad_de_consulta}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="9b05473a-3ee8-4e33-8e87-acec0380866c" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement uuid="49eaf41a-6c03-42c3-96ed-c992a9dba8a2" mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="644b5344-7e0c-47fe-bd49-cd12448c6c03" style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="9e7046c1-0795-47cd-88c0-8e81afbea2a5" style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="c496685e-82e7-4c4d-864d-3dee38e06b5d" style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="295" splitType="Stretch">
+			<bar3DChart>
+				<chart>
+					<reportElement uuid="b27eb881-7a62-4535-87bc-e83deeaafc3f" x="40" y="62" width="745" height="215"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{nombre completo} + " Consultas => " + $F{cantidad_de_consulta}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombre completo}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{cantidad_de_consulta}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

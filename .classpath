@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-0.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jbusycomponent-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jxlayer-3.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="lib/swingx-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/iText-2.1.7.js1.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/itextpdf-5.3.4.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/jasperreports-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/jasperreports-fonts-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/jasperreports-javaflow-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/jcommon-1.0.15.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/jfreechart-1.0.12.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/png-encoder-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/reportes/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendarcombo.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

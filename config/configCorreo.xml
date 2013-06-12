@@ -1,0 +1,8 @@
+<configuracion>
+	<correo>
+		<direccion>lacsoft.gestordepacientes@gmail.com</direccion>
+		<clave>gestordepacientes</clave>
+		<servidor>smtp.gmail.com</servidor>
+		<puerto>465</puerto>
+	</correo>
+</configuracion>

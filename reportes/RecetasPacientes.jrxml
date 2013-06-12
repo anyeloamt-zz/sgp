@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RecetasPacientes" language="groovy" pageWidth="580" pageHeight="500" columnWidth="540" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4aa1539a-e1e2-4b2f-8588-4c4d5b50f02a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="nombrePaciente" class="java.lang.String"/>
+	<field name="padecimiento" class="java.lang.String"/>
+	<field name="medicamentos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="41fdef7e-0370-47da-ac54-15bcb823047f" style="Title" x="0" y="13" width="263" height="33" backcolor="#0066FF"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Recetas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="407" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="0cbefac6-d275-4db3-8643-00d852fc7c85" x="26" y="236" width="509" height="155"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="160b55d4-4506-490a-ba7a-aeca5d38a850" x="26" y="45" width="509" height="179"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="1adbea9a-d577-47ce-b30b-b0b86aa1bf10" positionType="FixRelativeToBottom" x="0" y="2" width="535" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="49afba2e-8fa8-460e-bade-51473ee72a3e" x="175" y="268" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="226ea3dd-fc85-469d-9d2d-6574b2cb4447" x="175" y="240" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrePaciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e8cc55b3-9c02-4374-81b0-61651f53bfc8" x="176" y="300" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padecimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0699e474-56eb-481d-a4a7-75f76ae68454" x="34" y="53" width="496" height="163"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{medicamentos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9b47ed06-b18f-45eb-84d6-c5811e3fab9f" x="38" y="238" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombre del paciente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="92b72e36-289c-4088-9c98-3271edab22ae" x="38" y="268" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b15fff63-a973-4ae4-8c3a-7661b3e87c8d" x="176" y="261" width="346" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="439133c7-0924-4176-97b1-49d2ca2675c6" x="176" y="287" width="346" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="37272bef-5c2a-470d-9453-a2bd63c45182" x="38" y="302" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Padecimiento:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e251f946-e5bd-4cec-9bb5-e04d616945e8" x="176" y="321" width="346" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="4fdb290f-3be3-44f4-87c5-0602185d2779" x="280" y="368" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Firma del médico]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e251f946-e5bd-4cec-9bb5-e04d616945e8" x="247" y="358" width="164" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="9b47ed06-b18f-45eb-84d6-c5811e3fab9f" x="26" y="15" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Medicamentos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+</jasperReport>

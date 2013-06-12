@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ResultadosPruebasLaboratorio" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="701566ac-c92e-42da-a2a1-4457cc6a060c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="26"/>
+	<field name="nombrePaciente" class="java.lang.String"/>
+	<field name="cedulaPaciente" class="java.lang.String"/>
+	<field name="nombrePrueba" class="java.lang.String"/>
+	<field name="codigoPrueba" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="hora" class="java.lang.String"/>
+	<field name="resultado" class="java.lang.String"/>
+	<title>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7a122186-375f-4efe-9e90-447eafe4f0ae" x="6" y="0" width="802" height="52"/>
+				<textElement>
+					<font fontName="Monospaced" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resultado de la prueba de laboratorio]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="8" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="320" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="127" y="141" width="398" height="166"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="247" y="85" width="227" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="247" y="46" width="227" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="247" y="13" width="227" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="0" y="85" width="227" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="0" y="46" width="227" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b54731c9-abde-4fce-8a4e-cc363c165592" x="0" y="13" width="227" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="b6bec381-2b7b-40c6-b9b1-2b5177963920" x="11" y="13" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre del paciente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2127fbd2-9061-41d3-a54b-651fdb9b3834" x="127" y="46" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cedulaPaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e7eb63d6-426e-4f93-aacf-45880c9b1403" x="11" y="46" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[cedula del paciente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="36047e7d-e6ff-411b-9c56-c1734e794d00" x="127" y="85" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrePrueba}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b988c552-d922-4732-bbe4-cf965d259dd4" x="11" y="85" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre de la prueba:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b6b3ecbd-d447-45ad-b563-92c4bd86fe74" x="362" y="13" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="094972d2-3ed7-4a2d-868a-cd5a3a91111a" x="247" y="13" width="115" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha de realizacion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9dbc33b1-8c71-4a06-bc0d-c685cb334739" x="362" y="46" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="46a29efa-356d-445a-9209-704ae67e3069" x="247" y="46" width="115" height="20"/>
+				<textElement/>
+				<text><![CDATA[hora de realizacion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="43c38e11-bc7a-4516-a3c1-18c28c3f84c5" x="127" y="13" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrePaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="094972d2-3ed7-4a2d-868a-cd5a3a91111a" x="247" y="85" width="115" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha entregado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="247bb328-aa88-469f-bb22-e1ed0a0f4b58" x="139" y="160" width="386" height="131"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resultado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="616f557e-84f6-4195-8eb8-1bf1c5ac785c" x="0" y="140" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Resultado de la prueba:]]></text>
+			</staticText>
+		</band>
+		<band height="50"/>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

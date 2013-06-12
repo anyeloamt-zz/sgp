@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TopPadecimientos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfa89dd1-6af7-4d67-af50-c7d6f6594359">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="c6978aee-8d71-4b57-824b-8a3414b96c71"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT pa.nombre,count(receta_id) as cantidad_padecimiento
+FROM gestor_pacientes.recetas r join padecimientos pa
+on r.codigo_padecimiento = pa.codigo_padecimiento group by pa.nombre
+order by cantidad_padecimiento desc LIMIT 10;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="cantidad_padecimiento" class="java.lang.Long"/>
+	<group name="nombre">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement uuid="592333fe-3153-42a8-9ec5-16ae5c057f6e" mode="Opaque" x="229" y="7" width="573" height="24" forecolor="#B89F7D" backcolor="#70A9C6"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement uuid="291beb26-68dc-4106-a430-31b90c876327" style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="263" height="23" forecolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6">
+				<line>
+					<reportElement uuid="f88291b5-04b5-4c9f-9892-6e23f15864b1" positionType="FixRelativeToBottom" x="227" y="0" width="575" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="85e01ca5-dc0a-4422-8f09-eaa045731edc" style="SubTitle" x="336" y="65" width="449" height="29"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10  padecimientos más frecuentes]]></text>
+			</staticText>
+			<frame>
+				<reportElement uuid="774765cf-bfa5-4c8f-95eb-3d5fb9951ea6" mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="469f1682-09e9-4cfb-85ca-ce8ed25699c6" style="Title" x="231" y="0" width="578" height="65"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[          Gestor de Pacientes]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement uuid="d0fd434c-dc17-430c-b30e-6ff5a0359edf" x="227" y="0" width="575" height="14"/>
+				<staticText>
+					<reportElement uuid="bce7575c-8bca-4a96-bc67-77a8afd0e4b8" style="Column header" positionType="Float" x="0" y="0" width="575" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<frame>
+				<reportElement uuid="60b49e2f-0abb-44f6-b025-22794657c31d" x="227" y="0" width="300" height="14"/>
+			</frame>
+			<staticText>
+				<reportElement uuid="1e324d5a-ae3f-4114-90ae-67ffdfe80644" x="230" y="0" width="137" height="14"/>
+				<textElement/>
+				<text><![CDATA[Cantidad de apariciones]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b54768bc-2d05-4d4d-891d-34e391ffdb0d" style="Detail" positionType="Float" x="385" y="0" width="181" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad_padecimiento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement uuid="e76a45fa-1f5e-4704-8674-08dfd940cbc9" mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="157ff821-d162-46c4-9142-0a0feaa81585" style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="f59c63d2-c470-456b-8bc0-654f9836879e" style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="af52d0ba-7c42-4250-a03e-88d398dc13f5" style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="241" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement uuid="a9fc760c-dfa8-4042-8610-c88a7342da75" x="347" y="11" width="448" height="230"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre} + " apariciones => " + $F{cantidad_padecimiento}]]></keyExpression>
+					<valueExpression><![CDATA[$F{cantidad_padecimiento}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>
